@@ -13,7 +13,9 @@ Useful for data dumps and other "just gimme a query" tasks.
 ```js
 const userInput = `Robert'); DROP TABLE Students;--`
 
-sql`INSERT INTO awesome_table (sweet_column) VALUES (${userInput})` // => `INSERT INTO awesome_table (sweet_column) VALUES ('Robert\\'); DROP TABLE Students;--')`
+const query = sql`INSERT INTO awesome_table (sweet_column) VALUES (${userInput})`
+
+query // => `INSERT INTO awesome_table (sweet_column) VALUES ('Robert\\'); DROP TABLE Students;--')`
 ```
 
 - Unlike [node-sql-template-strings](https://github.com/felixfbecker/node-sql-template-strings), this module returns a string
@@ -55,7 +57,10 @@ MySQL has a [JSON](https://dev.mysql.com/doc/refman/5.7/en/json.html) data type,
 
 ```js
 const legitObject = { fancy: 'yes\'m' }
-sql`INSERT INTO document_store (json_column) VALUES (${legitObject})` // => `INSERT INTO document_store (json_column) VALUES ('{\\"fancy\\":\\"yes\\'m\\"}')`
+
+const jsonInsertQuery = sql`INSERT INTO document_store (json_column) VALUES (${legitObject})`
+
+jsonInsertQuery // => `INSERT INTO document_store (json_column) VALUES ('{\\"fancy\\":\\"yes\\'m\\"}')`
 ```
 
 # License
