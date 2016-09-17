@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "ES6 SQL-escaping tagged template literal that spits out a sanitized SQL string",
   "main": "index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
-    "test": "tape test.js"
+    "test": "jsmd readme.md"
   },
   "repository": {
     "type": "git",
@@ -25,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/TehShrike/sql-tagged-template-literal/issues"
   },
-  "homepage": "https://github.com/TehShrike/sql-tagged-template-literal#readme"
+  "homepage": "https://github.com/TehShrike/sql-tagged-template-literal#readme",
+  "devDependencies": {
+    "jsmd": "0.3.1"
+  },
+  "dependencies": {
+    "sqlstring": "2.0.1"
+  }
 }
