@@ -4,7 +4,11 @@ const sql = require('./')
 
 # sql-tagged-template-literal
 
-Useful for building data dumps.
+```sh
+npm install sql-tagged-template-literal
+```
+
+Useful for data dumps and other "just gimme a query" tasks.
 
 ```js
 const userInput = `Robert'); DROP TABLE Students;--`
@@ -15,9 +19,9 @@ sql`INSERT INTO awesome_table (sweet_column) VALUES (${userInput})` // => `INSER
 - Unlike [node-sql-template-strings](https://github.com/felixfbecker/node-sql-template-strings), this module returns a string
 - Unlike [sql-concat](https://github.com/TehShrike/sql-concat), this module isn't great at building queries dynamically
 
-Uses [sqlstring](https://github.com/mysqljs/sqlstring) for escaping.
+Uses the [sqlstring](https://github.com/mysqljs/sqlstring) library for escaping.
 
-Only meant for escaping values - don't insert table names in expressions.
+Only meant for escaping *values* - you shouldn't put table or column names in expressions.
 
 ## Escape mechanisms
 
