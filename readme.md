@@ -63,6 +63,14 @@ const jsonInsertQuery = sql`INSERT INTO document_store (json_column) VALUES (${l
 jsonInsertQuery // => `INSERT INTO document_store (json_column) VALUES ('{\\"fancy\\":\\"yes\\'m\\"}')`
 ```
 
+### Arrays become comma separated with their values escaped
+
+```js
+const arrayQuery = sql`WHERE name IN(${[ `Alice`, userInput ]})`
+
+arrayQuery // => "WHERE name IN('Alice', 'Robert\\'); DROP TABLE Students;--')"
+```
+
 # License
 
 [WTFPL](http://wtfpl2.com/)
