@@ -71,6 +71,16 @@ const arrayQuery = sql`WHERE name IN(${[ `Alice`, userInput ]})`
 arrayQuery // => "WHERE name IN('Alice', 'Robert\\'); DROP TABLE Students;--')"
 ```
 
+### Prefix the placeholder with `$` to leave the input unescaped
+
+```js
+const tableName = `tablename`
+const whereClause = sql`WHERE 1=${1}`
+const nestedQuery = sql`SELECT * FROM $${tableName} $${whereClause}`
+
+nestedQuery // => "SELECT * FROM tablename WHERE 1=1"
+```
+
 # License
 
 [WTFPL](http://wtfpl2.com/)
