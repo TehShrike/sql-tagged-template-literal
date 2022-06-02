@@ -27,7 +27,7 @@ Only meant for escaping *values* - you shouldn't put table or column names in ex
 
 ## Escape mechanisms
 
-### `null` is an unqouted NULL
+### `null` is an unquoted NULL
 
 ```js
 sql`SELECT ${null} IS NULL` // => `SELECT NULL IS NULL`
