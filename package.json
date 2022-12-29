@@ -1,6 +1,6 @@
 {
   "name": "sql-tagged-template-literal",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ES6 SQL-escaping tagged template literal that spits out a sanitized SQL string",
   "main": "index.js",
   "engines": {
