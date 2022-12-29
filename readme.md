@@ -71,6 +71,13 @@ const arrayQuery = sql`WHERE name IN(${[ `Alice`, userInput ]})`
 arrayQuery // => "WHERE name IN('Alice', 'Robert\\'); DROP TABLE Students;--')"
 ```
 
+```js
+const twoDimensionalArray = [[`a`, 1], [`b`, 2], [`c`, 3]]
+const twoDimensionalQuery = sql`INSERT INTO tablez (letter, number) VALUES ${twoDimensionalArray}`
+
+twoDimensionalQuery // => `INSERT INTO tablez (letter, number) VALUES ('a', 1), ('b', 2), ('c', 3)`
+```
+
 # License
 
 [WTFPL](http://wtfpl2.com/)
