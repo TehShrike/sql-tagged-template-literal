@@ -14,9 +14,13 @@ module.exports = function sqlTag(queryParts, ...values) {
 	}, ``)
 }
 
-const smarterEscape = value => {
+const smarterEscape = (value, addParensToArrays) => {
 	if (Array.isArray(value)) {
-		return value.map(element => smarterEscape(element)).join(`, `)
+		let result = value.map(element => smarterEscape(element, true)).join(`, `)
+		if (addParensToArrays) {
+			result = `(` + result + `)`
+		}
+		return result
 	} else if (isObject(value)) {
 		return escape(JSON.stringify(value))
 	}

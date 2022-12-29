@@ -27,7 +27,7 @@ Only meant for escaping *values* - you shouldn't put table or column names in ex
 
 ## Escape mechanisms
 
-### `null` is an unqouted NULL
+### `null` is an unquoted NULL
 
 ```js
 sql`SELECT ${null} IS NULL` // => `SELECT NULL IS NULL`
@@ -69,6 +69,13 @@ jsonInsertQuery // => `INSERT INTO document_store (json_column) VALUES ('{\\"fan
 const arrayQuery = sql`WHERE name IN(${[ `Alice`, userInput ]})`
 
 arrayQuery // => "WHERE name IN('Alice', 'Robert\\'); DROP TABLE Students;--')"
+```
+
+```js
+const twoDimensionalArray = [[`a`, 1], [`b`, 2], [`c`, 3]]
+const twoDimensionalQuery = sql`INSERT INTO tablez (letter, number) VALUES ${twoDimensionalArray}`
+
+twoDimensionalQuery // => `INSERT INTO tablez (letter, number) VALUES ('a', 1), ('b', 2), ('c', 3)`
 ```
 
 ### Prefix the placeholder with `$` to leave the input unescaped
