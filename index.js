@@ -4,8 +4,13 @@ module.exports = function sqlTag(queryParts, ...values) {
 	return queryParts.reduce((query, queryPart, i) => {
 		const valueExists = i < values.length
 		const text = query + queryPart
-
-		return valueExists ? text + smarterEscape(values[i]) : text
+		if (!valueExists) {
+			return text
+		}
+		if (text.endsWith(`$`)) {
+			return text.slice(0, -1) + values[i]
+		}
+		return text + smarterEscape(values[i])
 	}, ``)
 }
 
