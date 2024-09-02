@@ -33,6 +33,12 @@ Only meant for escaping *values* - you shouldn't put table or column names in ex
 sql`SELECT ${null} IS NULL` // => `SELECT NULL IS NULL`
 ```
 
+### `undefined` is an unquoted NULL
+
+```js
+sql`SELECT ${undefined} IS NULL` // => `SELECT NULL IS NULL`
+```
+
 ### Strings are escaped and quoted
 
 ```js
