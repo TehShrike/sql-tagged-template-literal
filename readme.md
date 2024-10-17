@@ -69,12 +69,17 @@ const jsonInsertQuery = sql`INSERT INTO document_store (json_column) VALUES (${l
 jsonInsertQuery // => `INSERT INTO document_store (json_column) VALUES ('{\\"fancy\\":\\"yes\\'m\\"}')`
 ```
 
-### Arrays become comma separated with their values escaped
+### Arrays and Sets become comma separated with their values escaped
 
 ```js
 const arrayQuery = sql`WHERE name IN(${[ `Alice`, userInput ]})`
 
 arrayQuery // => "WHERE name IN('Alice', 'Robert\\'); DROP TABLE Students;--')"
+```
+
+```js
+const mySet = new Set([ 1, 42 ])
+sql`WHERE value IN(${ mySet })` // => "WHERE value IN(1, 42)"
 ```
 
 ```js
