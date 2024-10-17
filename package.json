@@ -4,7 +4,7 @@
   "description": "ES6 SQL-escaping tagged template literal that spits out a sanitized SQL string",
   "main": "index.js",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "test": "jsmd readme.md"
