@@ -10,6 +10,9 @@ module.exports = function sqlTag(queryParts, ...values) {
 }
 
 const smarterEscape = (value, addParensToArrays) => {
+	if (value instanceof Set) {
+		value = [ ...value ]
+	}
 	if (Array.isArray(value)) {
 		let result = value.map(element => smarterEscape(element, true)).join(`, `)
 		if (addParensToArrays) {
