@@ -1,6 +1,7 @@
 ## 1.3.0
 
 - Add support for `Set`s, which get comma-separated same as with arrays ([#5](https://github.com/TehShrike/sql-tagged-template-literal/pull/5))
+- Drop support/tests for unsupported versions of node
 
 ## 1.2.0
 
